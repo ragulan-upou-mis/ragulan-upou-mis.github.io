@@ -204,65 +204,14 @@ window.addEventListener('scroll', function(ev) {
 });
 
 
-
-
 const modal = document.getElementById("modal");
 const span = document.getElementsByClassName("close")[0];
 
-const contents = {
-  'eat': `
-    <section>
-      <center>
-      <img src="images/eat.png" alt="Eat">
-      <h1>We love to eat!</h1>
-      </center>
-      <br />
-      <p>Who doesn't, right?</p>
-      <br />
-      <p>
-        I love to go out and eat with my girlfriend &#x2665;&#xfe0f;
-      </p>
-      <br />
-      <p>
-        Because of my always busy schedule, my girlfriend and I only meet once or twice a week, usually during weekends, so we make the most out of it.
-        We eat fast food, we go to coffee shops, but our always go to place is anywhere unlimited Korean Barbecue! Nothing will beat unli samgyupsal! lol &#128517;
-      </p>
-      <br />
-      <p class="fun-fact">
-        <b>Fun Fact!</b> My girlfriend is always on a diet, but she knows that food is my love language so she loves and hates me at the same time when we go out to eat &#128517;
-      </p>
-    </section>
-  `,
-  'unwind': 'I love to unwind',
-  'travel': `
-    <section>
-      <center>
-      <img src="images/motorcycle.png" alt="Eat">
-      <h1>Travel is a must!</h1>
-      </center>
-      <br />
-      <p>We work hard so we also deserve to relax sometimes right?</p>
-      <br />
-      <p>
-        When me and my friends wants to catch up, we travel.
-      </p>
-      <br />
-      <p>
-        Sometimes we do breakfast rides but, mostly, our go to destinations are mountain viewpoints or beaches. Aside from the relaxation and the ambience, it's always the 
-        stories and the laughs we share with each others.
-      </p>
-      <br />
-      <p class="fun-fact">
-        <b>Fun Fact!</b> We hate planned travels. We don't plan anything 'coz, for us, planned travels are always not happening. 
-        For example, we want to go somewhere, we invite each other at 8 o'clock in the evening, we take off at 4am the next day. That's what I love in our circle. Unplanned but always the best.
-      </p>
-    </section>
-  `
-};
-
 function toggleModal(target) {
   modal.style.display = "block";
-  document.getElementById('modal-content').innerHTML = contents[target];
+  let modalContent = document.getElementById('modal-content');
+  let targetContent = document.getElementById(target);
+  modalContent.innerHTML = targetContent.innerHTML;
 }
 
 span.onclick = function() {

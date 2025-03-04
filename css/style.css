@@ -308,7 +308,6 @@ header {
   margin:0;
 }
 
-
 /* Hobbies */
 
 /* Footer */
@@ -351,6 +350,10 @@ footer div ul li a:hover {
   font-size: 20px;
 }
 /* Footer */
+
+#hidden-modal-contents {
+  display: none !important;
+}
 
 #top {
   position: fixed;
