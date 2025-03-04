@@ -213,7 +213,7 @@ const contents = {
   'eat': `
     <section>
       <center>
-      <img src="/images/eat.png" alt="Eat">
+      <img src="images/eat.png" alt="Eat">
       <h1>We love to eat!</h1>
       </center>
       <br />
@@ -237,7 +237,7 @@ const contents = {
   'travel': `
     <section>
       <center>
-      <img src="/images/motorcycle.png" alt="Eat">
+      <img src="images/motorcycle.png" alt="Eat">
       <h1>Travel is a must!</h1>
       </center>
       <br />
