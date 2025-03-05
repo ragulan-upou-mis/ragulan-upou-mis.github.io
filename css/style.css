@@ -24,28 +24,27 @@ header {
   opacity: 0;
 }
 
-
 .main {
   overflow: hidden;
 }
 
-.main .left, .main .right {
+.inner-container section:first-child, .inner-container section:nth-child(3) {
   padding: 0 5px;
   margin:auto 0;
   z-index: 1000 !important;
 }
 
-.main .left {
+.inner-container section:first-child {
   float: left;
   width: 50%;
 }
 
-.main .right {
+.inner-container section:nth-child(3) {
   width:50%;
   padding: 0 50px 0 200px;
 }
 
-.main .right ul {
+.inner-container section:nth-child(3) ul {
   margin: 0;
   padding: 0;
   opacity: 0;
@@ -54,33 +53,33 @@ header {
 }
 
 
-.main .right ul li:first-child {
+.inner-container section:nth-child(3) ul li:first-child {
   font-size: 50px;
   line-height: 1;
   pointer-events: none !important;
 }
 
-.main .right ul li {
+.inner-container section:nth-child(3) ul li {
   padding:10px;
   margin-bottom:10px;
   text-align: center;
 }
 
-.main .right ul li img {
+.inner-container section:nth-child(3) ul li img {
   width: 20%;
   mix-blend-mode: difference;
 }
 
-.main .right ul li.hobbies a {
+.inner-container section:nth-child(3) ul li.hobbies a {
   transition: 0.5s;
 }
 
-.main .right ul li.hobbies a:hover {
+.inner-container section:nth-child(3) ul li.hobbies a:hover {
   cursor: pointer;
   font-size: 30px;
 }
 
-.main .left p.name {
+.inner-container section:first-child p:first-child {
   transform: translateY(-50%);
   opacity: 0;
   font-size: 2rem;
@@ -88,7 +87,7 @@ header {
   padding-left:50px;
 }
 
-.main .left p.short-introduction {
+.inner-container section:first-child p:last-child {
   font-size: 13px;
   width:55%;
   margin:10px 50px 0 50px;
@@ -121,13 +120,13 @@ header {
   padding:0;
 }
 
-.main .left ul li {
+.inner-container section:first-child ul li {
   transform: translateX(-20%);
   animation: slideFromLeft 1s 2s forwards;
   opacity: 0;
 }
 
-.main .main-img img {
+.inner-container section:nth-child(2) img {
   position: absolute;
   z-index: 1;
   margin-left: auto;
@@ -306,6 +305,7 @@ header {
   line-height: 1;
   padding:0;
   margin:0;
+  z-index: -1 !important;
 }
 
 /* Hobbies */
@@ -429,7 +429,7 @@ footer div ul li a:hover {
     padding: 10px;
   }
 
-  .main-img img {
+  .inner-container section:nth-child(2) img {
     top:0;
     width: 50% !important;
   }
@@ -439,16 +439,17 @@ footer div ul li a:hover {
     padding: 5px 10px !important;
   }
 
-  .inner-container .left, .inner-container .left .name, .inner-container .left ul {
+  .inner-container section:first-child, .inner-container section:first-child p:first-child, .inner-container section:first-child ul {
     width: 100% !important;
     padding: 5px !important;
   }
-  .inner-container .left .name {
+
+  .inner-container section:first-child p:first-child {
     margin-top:70px !important;
     font-size: 23px !important;
   }
 
-  .short-introduction {
+  .inner-container section:first-child p:last-child {
     margin: 0 !important;
     width: 75% !important;
   }
@@ -457,7 +458,7 @@ footer div ul li a:hover {
     font-size: 1rem !important;
   }
 
-  .right img {
+  .inner-container section:nth-child(3) img {
     width: 50px !important;
   }
 
@@ -520,7 +521,7 @@ footer div ul li a:hover {
     margin:0 !important;
   }
 
-  .inner-container .left {
+  .inner-container section:first-child {
     width: 100% !important;
     float: left;
     max-width: 100%;
@@ -528,11 +529,11 @@ footer div ul li a:hover {
     margin:0 !important;
   }
 
-  .inner-container .right {
+  .inner-container section:nth-child(3) {
     display: none !important;
   }
 
-  .inner-container .left .name {
+  .inner-container section:first-child p:first-child {
     text-align: center;
     font-size: 1rem !important;
     padding:10px 0 !important;
@@ -540,13 +541,13 @@ footer div ul li a:hover {
     width: auto;
   }
 
-  .inner-container ul {
+  .inner-container section:first-child ul {
     padding: 10px !important;
     margin: 0 !important;
     text-align: center !important;
   }
 
-  .short-introduction {
+  .inner-container section:first-child p:last-child {
     text-align: center !important;
     margin:0 !important;
     padding:10px !important;
@@ -554,7 +555,7 @@ footer div ul li a:hover {
     max-width: 100% !important;
   }
 
-  .main-img img {
+  .inner-container section:nth-child(2) img {
     top:0;
     width:100% !important;
     z-index: -1 !important;
@@ -570,6 +571,10 @@ footer div ul li a:hover {
     display: block !important;
     overflow-y: none;
     padding: 25px 10px !important;
+  }
+
+  #hobbies-title {
+    margin-top: 100px;
   }
 
   #hobbies ul {
