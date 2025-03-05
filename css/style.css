@@ -28,6 +28,12 @@ header {
   overflow: hidden;
 }
 
+.wrap {
+  font-weight: bold !important;
+  border-bottom: 2px solid #666;
+  border-right: 0.1em solid #fff;
+}
+
 .inner-container section:first-child, .inner-container section:nth-child(3) {
   padding: 0 5px;
   margin:auto 0;
@@ -82,7 +88,7 @@ header {
 .inner-container section:first-child p:first-child {
   transform: translateY(-50%);
   opacity: 0;
-  font-size: 2rem;
+  font-size: 25px;
   animation: slideFromTop 1s 2s forwards;
   padding-left:50px;
 }
