@@ -5,7 +5,6 @@ const body = document.querySelector('body');
 const toggleCheckbox = document.querySelector('.toggleCheckbox');
 
 const localStorage = window.localStorage;
-// localStorage.clear();
 
 const editMode = localStorage.getItem('edit_mode');
 const isEditMode = editMode == 'true' ?? false;
@@ -160,31 +159,71 @@ changeFontStyle.addEventListener('click', function (e) {
   }
 });
 
+
+
+
 window.addEventListener('scroll', function(ev) {
 
   let hobbies = document.getElementById('hobbies');
-  let title = document.getElementById('hobbies-title');
   let distanceToTop = hobbies.getBoundingClientRect().top;
-  let rightContainer = document.getElementById('right-container');
+
+  let main = document.getElementById('main');
+  let mainImg = document.getElementById('main-img');
+  let scrollTop = document.body.scrollTop;
+
+  let title = document.getElementById('hobbies-title');
+  
   let leftContainer = document.getElementById('left-container');
+  let rightContainer = document.getElementById('right-container');
   let width = window.screen.width;
   let distance;
 
   if (width > 900) {
-    distance = 300;
+    distance = 500;
   } else {
     distance = 550;
   }
 
-  if (distanceToTop < distance) {
-      if (width > 425) {
+  if (width < 425) {
+    document.getElementById('hobbies-container').style.marginTop = '0';
+  }
+
+  if (width > 425) {
+    if (scrollTop <= 100) {
+        main.classList.remove('sticky');
+    }
+    
+    if (scrollTop > 100 && scrollTop < 1300) {
+        main.classList.add('sticky');
+        main.style.transform = 'translateY(0%)';
+        // main.style.opacity = '1';
+    } 
+
+    if (scrollTop > 700 && scrollTop < 900) {
         leftContainer.style.transition = '1s';
-        rightContainer.style.transition = '1s';
-        rightContainer.style.transform = 'translateX(100%)';
         leftContainer.style.transform = 'translateX(-100%)';
         leftContainer.style.opacity = '0';
+        mainImg.style.transition = '1s';
+        mainImg.style.transform = 'translateX(-90%)';
+    } 
+    
+    if (scrollTop <= 700) {
+      leftContainer.style.opacity = '1';
+      leftContainer.style.transform = 'translateX(0)';
+      mainImg.style.transition = '1s';
+      mainImg.style.transform = 'translateX(0)';
+    }
+  }
+
+  if (distanceToTop < distance) {
+      if (width > 425) {
+        rightContainer.style.transition = '1s';
+        rightContainer.style.transform = 'translateX(100%)';
+        main.style.transition = '1s';
+        main.style.transform = 'translateY(-100%)';
+        // main.style.opacity = '0';
       }
-      
+
       hobbies.innerHTML = rightContainer.innerHTML;
       hobbies.style.transition = '1s';
       hobbies.style.transform = 'translateX(0)';
@@ -196,10 +235,9 @@ window.addEventListener('scroll', function(ev) {
   } else {
       if (width > 425) {
         rightContainer.style.transition = '1s';
-        rightContainer.style.transition = '1s';
         rightContainer.style.transform = 'translateX(0)';
-        leftContainer.style.transform = 'translateX(0)';
-        leftContainer.style.opacity = '1';
+        // leftContainer.style.opacity = '1';
+        // leftContainer.style.transform = 'translateX(0)';
       }
 
       hobbies.style.transition = '1s';
@@ -226,9 +264,3 @@ function toggleModal(target) {
 span.onclick = function() {
   modal.style.display = "none";
 }
-
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }

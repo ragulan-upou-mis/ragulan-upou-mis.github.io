@@ -7,6 +7,12 @@ header {
   animation: slideFromTop 1s 1s forwards;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  padding-top:0 !important;
+}
+
 .inner-container {
   display: flex;
   overflow: hidden;
@@ -261,6 +267,7 @@ header {
 
 #hobbies-container {
   overflow: hidden;
+  margin-top: 2000px;
 }
 
 #hobbies ul {
