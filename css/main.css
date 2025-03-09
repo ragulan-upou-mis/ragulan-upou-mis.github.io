@@ -14,10 +14,9 @@
   --secondary-button: rgba(77, 112, 230, 0.8);
   --background-color: var(--background-color-white);
 
-  --primary: #C7A17A;
-  --secondary: #7AC77A;
-  --tertiary: #7AA0C7;
-  --quaternary: #C77AC6;
+  --primary: #680100;
+  --secondary: #057473;
+  --tertiary: #00004a;
 }
 
 .text-basic {
@@ -27,15 +26,14 @@
 
 .text-dark {
   color: #222 !important;
-  text-shadow: 0.5px 0.5px #aaa !important;
 }
 
 .bg-dark {
-  background: #444 !important;
+  background-color: #444 !important;
 }
 
 .bg-basic {
-  background-color: var(--background-color-white) !important;
+  background-color: #eee !important;
 }
 
 .text-primary {
@@ -64,16 +62,6 @@
 .bg-tertiary {
   background-color: var(--tertiary) !important;
 }
-
-.text-quaternary {
-  color: var(--quaternary) !important;
-  text-shadow: 0.2px 0.2px #ccc !important;
-}
-
-.bg-quaternary {
-  background-color: var(--quaternary) !important;
-}
-
 
 *,
 *::before,

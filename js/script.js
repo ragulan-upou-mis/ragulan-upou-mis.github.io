@@ -1,3 +1,5 @@
+document.body.scrollTo(0, 0);
+
 const navbar = document.querySelector('.navbar');
 const hamburger = navbar.querySelector('.navbar__hamburger');
 const menu = document.querySelector('.mobile__menu');
@@ -5,6 +7,8 @@ const body = document.querySelector('body');
 const toggleCheckbox = document.querySelector('.toggleCheckbox');
 
 const localStorage = window.localStorage;
+
+console.log(localStorage);
 
 const editMode = localStorage.getItem('edit_mode');
 const isEditMode = editMode == 'true' ?? false;
@@ -14,10 +18,6 @@ const changeBodyBackground = document.querySelector('.changeBodyBackground');
 const targetBodyBackground = document.getElementsByClassName('target-body-background');
 const selectedBodyBackground = localStorage.getItem('target-body-background');
 
-const changeBackground = document.querySelector('.changeBackground');
-const targetBackground = document.getElementsByClassName('target-background');
-const selectedBackground = localStorage.getItem('target-background');
-
 const changeFontColor = document.querySelector('.changeFontColor');
 const targetFontColor = document.getElementsByClassName('target-font-color');
 const selectedFontColor = localStorage.getItem('target-font-color');
@@ -26,11 +26,10 @@ const changeFontStyle = document.querySelector('.changeFontStyle');
 const targetFontStyle = document.getElementsByClassName('target-font-style');
 const selectedFontStyle = localStorage.getItem('target-font-style');
 
-const backgroundClasses = ['bg-dark', 'bg-basic', 'bg-primary', 'bg-secondary', 'bg-tertiary', 'bg-quaternary'];
-const fontClasses = ['text-basic', 'text-primary', 'text-secondary', 'text-tertiary', 'text-quaternary', 'text-dark'];
+const backgroundClasses = ['bg-secondary', 'bg-dark', 'bg-basic', 'bg-primary',  'bg-tertiary'];
+const fontClasses = ['text-basic', 'text-primary', 'text-secondary', 'text-tertiary', 'text-dark'];
 const fontStyles = ['poppins', 'rubik', 'nunito', 'calistoga', 'autowide'];
 
-addClass(targetBackground, selectedBackground);
 addClass(targetBodyBackground, selectedBodyBackground);
 addClass(targetFontColor, selectedFontColor);
 addClass(targetFontStyle, selectedFontStyle);
@@ -107,18 +106,6 @@ document.querySelector('.reset').addEventListener('click', function (e) {
   window.location.reload();
 });
 
-changeBackground.addEventListener('click', function (e) {
-  let value = e.target.classList.value;
-  let key = 'target-background';
-  
-  if (value != '') {
-    backgroundClasses.forEach(function (i){
-      removeClass(targetBackground, i);
-    });
-    localStorage.setItem(key, value);
-    addClass(targetBackground, value);
-  }
-});
 
 changeBodyBackground.addEventListener('click', function (e) {
   let value = e.target.classList.value;
@@ -159,23 +146,30 @@ changeFontStyle.addEventListener('click', function (e) {
   }
 });
 
-
-
+let width = window.screen.width;
+let hobbies = document.getElementById('hobbies-bottom');
+hobbies.style.transform = 'translateY(100%)';
+hobbies.style.bottom = '0';
+if (width < 425) {
+  document.getElementById('hobbies-container').style.marginTop = '0';
+  document.getElementById('hobbies').innerHTML = hobbies.innerHTML;
+}
 
 window.addEventListener('scroll', function(ev) {
 
-  let hobbies = document.getElementById('hobbies');
-  let distanceToTop = hobbies.getBoundingClientRect().top;
+  let title = document.getElementById('hobbies-title');  
+  let footer = document.getElementById('contact');
+
+  let footerDistance = footer.getBoundingClientRect().top;
+  let distanceToTop = title.getBoundingClientRect().top;
 
   let main = document.getElementById('main');
   let mainImg = document.getElementById('main-img');
   let scrollTop = document.body.scrollTop;
-
-  let title = document.getElementById('hobbies-title');
   
   let leftContainer = document.getElementById('left-container');
-  let rightContainer = document.getElementById('right-container');
-  let width = window.screen.width;
+  
+
   let distance;
 
   if (width > 900) {
@@ -184,69 +178,63 @@ window.addEventListener('scroll', function(ev) {
     distance = 550;
   }
 
-  if (width < 425) {
-    document.getElementById('hobbies-container').style.marginTop = '0';
-  }
+  
 
   if (width > 425) {
     if (scrollTop <= 100) {
         main.classList.remove('sticky');
+        hobbies.style.transform = 'none';
+        hobbies.style.marginBottom = '-500px';
     }
     
     if (scrollTop > 100 && scrollTop < 1300) {
         main.classList.add('sticky');
         main.style.transform = 'translateY(0%)';
-        // main.style.opacity = '1';
-    } 
+        hobbies.style.transform = 'translateY(0%)';
+        hobbies.style.marginBottom = '0';
+    }
 
-    if (scrollTop > 700 && scrollTop < 900) {
-        leftContainer.style.transition = '1s';
-        leftContainer.style.transform = 'translateX(-100%)';
-        leftContainer.style.opacity = '0';
-        mainImg.style.transition = '1s';
-        mainImg.style.transform = 'translateX(-90%)';
-    } 
-    
-    if (scrollTop <= 700) {
-      leftContainer.style.opacity = '1';
-      leftContainer.style.transform = 'translateX(0)';
-      mainImg.style.transition = '1s';
-      mainImg.style.transform = 'translateX(0)';
+    if (footerDistance < 600) {
+      hobbies.style.transform = 'translateY(-100%)';
+    }
+
+    if (footerDistance > 600) {
+      hobbies.style.transform = 'translateY(0)';
     }
   }
 
+
+
   if (distanceToTop < distance) {
       if (width > 425) {
-        rightContainer.style.transition = '1s';
-        rightContainer.style.transform = 'translateX(100%)';
         main.style.transition = '1s';
         main.style.transform = 'translateY(-100%)';
-        // main.style.opacity = '0';
+
+        mainImg.style.transition = '1s';
+        mainImg.style.transform = 'translateX(100%)';
+
+        leftContainer.style.transition = '1s';
+        leftContainer.style.opacity = '0';
+        leftContainer.style.transform = 'translateX(-100%)';
+        
+        hobbies.style.transition = '1s';
+        hobbies.classList.add('fixed');
       }
-
-      hobbies.innerHTML = rightContainer.innerHTML;
-      hobbies.style.transition = '1s';
-      hobbies.style.transform = 'translateX(0)';
-      hobbies.style.opacity = '1';
-
-      title.style.transition = '1s';
-      title.style.transform = 'translateY(0)';
-      title.style.opacity = '1';
   } else {
       if (width > 425) {
-        rightContainer.style.transition = '1s';
-        rightContainer.style.transform = 'translateX(0)';
-        // leftContainer.style.opacity = '1';
-        // leftContainer.style.transform = 'translateX(0)';
+        main.style.transition = '1s';
+        main.style.transform = 'translateY(0)';
+
+        mainImg.style.transition = '1s';
+        mainImg.style.transform = 'translateX(0)';
+
+        leftContainer.style.transition = '1s';
+        leftContainer.style.opacity = '1';
+        leftContainer.style.transform = 'translateX(0)';
+
+        hobbies.style.transition = '1s';
+        hobbies.classList.remove('fixed');
       }
-
-      hobbies.style.transition = '1s';
-      hobbies.style.transform = 'translateX(100%)';
-      hobbies.style.opacity = '0';
-
-      title.style.transition = '1s';
-      title.style.transform = 'translateX(-100%)';
-      title.style.opacity = '0';
   }
 });
 

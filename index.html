@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Calistoga&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 </head>
-<body class="target-body-background">
+<body class="target-body-background bg-secondary">
+<span id="distance"></span>
 <div class="scroll-progress bg-dark"></div>
 <!-- NAVBAR -->
 <header>
@@ -20,7 +21,6 @@
     <div class="navbar__container container">
       <a href="#" class="navbar__logo target-font-color target-font-style">RG</a>
       <ul class="navbar__links">
-        <li class="navbar__links-item"><a class="target-font-color target-font-style" href="#hobbies-title">Hobbies &amp; Interests</a></li>
         <li class="navbar__links-item"><a class="target-font-color target-font-style" href="#contact">Contact</a></li>
       </ul>
       <ul class="actions">
@@ -54,14 +54,13 @@
 <aside class="mobile__menu center glass-morphism">
     <nav class="mobile__nav">
       <ul class="mobile__links">
-        <li class="navbar__links-item"><a class="target-font-color target-font-style" href="#dummy-container">Hobbies &amp; Interests</a></li>
         <li class="mobile__links-item"><a class="target-font-color target-font-style" href="#contact">Contact</a></li>
       </ul>
     </nav>
 </aside>
 <!-- MOBILE NAVBAR -->
 <section class="main" id="main">
-  <div class="inner-container target-background" id="home">
+  <div class="inner-container" id="home">
     <section id="left-container">
       <p class="target-font-color target-font-style">Hi, I am 
           <a href="javascript:void(0)" class="typewrite" 
@@ -72,12 +71,10 @@
       </p>
       <br />
       <ul>
-        <li class="target-font-color target-font-style">Graduate of BS Information Systems</li>
-        <li class="target-font-color target-font-style">Software Engineer by profession</li>
+        <li class="target-font-color target-font-style">Graduate BS Information Systems</li>
+        <li class="target-font-color target-font-style">Currently a Software Engineer</li>
         <li class="target-font-color target-font-style">Soon to be Master of Information Systems</li>
       </ul>
-      <br />
-      <br />
       <p class="glass-morphism target-font-color">
         I am a 29-year-old Isabelino, graduate of <b class="target-font-color">Bachelor of Science in Information Systems</b> 
         at Isabela State University - Echague Main Campus, 
@@ -91,44 +88,41 @@
     <section>
       <img src="images/reymond.png" alt="Reymond" id="main-img">
     </section>
-
-    <section class="show-modal" id="right-container">
-      <ul>
-        <li class="target-font-color target-font-style">E.U.T</li>
-        <li class="hobbies">
-          <a href="javascript:void(0)" class="eat" onclick="toggleModal('eat')">
-            <img src="images/eat.png" alt="Eat">
-            <p class="target-font-color target-font-style">EAT</p>
-          </a>
-        </li>
-        <li class="hobbies">
-          <a href="javascript:void(0)" class="unwind" onclick="toggleModal('unwind')">
-            <img src="images/unwind.png" alt="Unwind">
-            <p class="target-font-color target-font-style">UNWIND</p>
-          </a>
-        </li>
-        <li class="hobbies">
-          <a href="javascript:void(0)" class="travel" onclick="toggleModal('travel')">
-            <img src="images/travel.png" alt="travel">
-            <p class="target-font-color target-font-style">TRAVEL</p>
-          </a>
-        </li>
-      </ul>
-    </section>
-
     <p class="shadow-effect top autowide">Web Programming &amp; Development</p>
-    <p class="shadow-effect bottom autowide">Reymond Gulan</p>
+    <p class="shadow-effect top autowide" id="bottom-title">Web Programming &amp; Development</p>
   </div>
 </section>
 
-<section id="dummy-container"></section>
 <section id="hobbies-container">
   <center>
     <h1 id="hobbies-title">
-      <b class="target-font-color target-font-style">E.U.T.</b>
+      <b class="target-font-color target-font-style"></b>
     </h1>
   </center>
   <div id="hobbies"></div>
+</section>
+
+<section class="show-modal" id="hobbies-bottom">
+  <ul>
+    <li class="hobbies glass-morphism">
+      <a href="javascript:void(0)" class="eat" onclick="toggleModal('eat')">
+        <img src="images/eat.png" alt="Eat">
+        <p class="target-font-color target-font-style">EAT</p>
+      </a>
+    </li>
+    <li class="hobbies glass-morphism">
+      <a href="javascript:void(0)" class="unwind" onclick="toggleModal('unwind')">
+        <img src="images/unwind.png" alt="Unwind">
+        <p class="target-font-color target-font-style">UNWIND</p>
+      </a>
+    </li>
+    <li class="hobbies glass-morphism">
+      <a href="javascript:void(0)" class="travel" onclick="toggleModal('travel')">
+        <img src="images/travel.png" alt="travel">
+        <p class="target-font-color target-font-style">TRAVEL</p>
+      </a>
+    </li>
+  </ul>
 </section>
 
 <footer class="glass-morphism" id="contact">
@@ -189,18 +183,6 @@
       <li><span class="bg-primary"></span></li>
       <li><span class="bg-secondary"></span></li>
       <li><span class="bg-tertiary"></span></li>
-      <li><span class="bg-quaternary"></span></li>
-    </ul>
-  </div>
-  <div class="background-color-options changeBackground">
-    <p>Container</p>
-    <ul>
-      <li><span class="bg-dark"></span></li>
-      <li><span class="bg-basic"></span></li>
-      <li><span class="bg-primary"></span></li>
-      <li><span class="bg-secondary"></span></li>
-      <li><span class="bg-tertiary"></span></li>
-      <li><span class="bg-quaternary"></span></li>
     </ul>
   </div>
   <div class="text-color-options changeFontColor">
@@ -211,7 +193,6 @@
       <li><span class="text-primary">Aa</span></li>
       <li><span class="text-secondary">Aa</span></li>
       <li><span class="text-tertiary">Aa</span></li>
-      <li><span class="text-quaternary">Aa</span></li>
     </ul>
   </div>
   <div class="font-options changeFontStyle">
@@ -307,7 +288,7 @@
 
 <!-- CUSTOM MODAL -->
 <section id="modal" class="modal">
-  <div class="modal-content glass-morphism target-background">
+  <div class="modal-content glass-morphism">
     <p class="close">
       <span>&times;</span>
     </p>
