@@ -8,8 +8,6 @@ const toggleCheckbox = document.querySelector('.toggleCheckbox');
 
 const localStorage = window.localStorage;
 
-console.log(localStorage);
-
 const editMode = localStorage.getItem('edit_mode');
 const isEditMode = editMode == 'true' ?? false;
 const editModeContainer = document.querySelector('.editMode');
@@ -30,8 +28,14 @@ const backgroundClasses = ['bg-secondary', 'bg-dark', 'bg-basic', 'bg-primary', 
 const fontClasses = ['text-basic', 'text-primary', 'text-secondary', 'text-tertiary', 'text-dark'];
 const fontStyles = ['poppins', 'rubik', 'nunito', 'calistoga', 'autowide'];
 
-addClass(targetBodyBackground, selectedBodyBackground);
-addClass(targetFontColor, selectedFontColor);
+if (selectedBodyBackground === null) {
+  addClass(targetBodyBackground, 'bg-secondary');
+  addClass(targetFontColor, 'text-basic');
+} else {
+  addClass(targetBodyBackground, selectedBodyBackground);
+  addClass(targetFontColor, selectedFontColor);
+}
+
 addClass(targetFontStyle, selectedFontStyle);
 
 document.getElementById('toggle').checked = isEditMode;
@@ -150,6 +154,7 @@ let width = window.screen.width;
 let hobbies = document.getElementById('hobbies-bottom');
 hobbies.style.transform = 'translateY(100%)';
 hobbies.style.bottom = '0';
+
 if (width < 425) {
   document.getElementById('hobbies-container').style.marginTop = '0';
   document.getElementById('hobbies').innerHTML = hobbies.innerHTML;
