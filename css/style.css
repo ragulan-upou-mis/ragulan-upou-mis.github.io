@@ -338,9 +338,9 @@ header {
 }
 
 #hobbies-bottom ul li {
-  width: 15%;
+  width: 30vh;
   text-align: center;
-  height: auto !important;
+  height: 30vh !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -353,8 +353,7 @@ header {
 }
 
 #hobbies-bottom ul li a:hover {
-  font-size: 20px;
-  position: relative;
+  font-size: 30px;
 }
 
 #hobbies-bottom ul li a:hover > img {
@@ -362,11 +361,7 @@ header {
 }
 
 #hobbies-bottom ul li:first-child a:hover > img {
-  margin-top:-10px;
-}
-
-#hobbies-bottom ul li:first-child img {
-  width: 60%;
+  margin-top:-30px;
 }
 
 #hobbies-bottom img {
@@ -374,7 +369,16 @@ header {
 }
 
 #hobbies-bottom.fixed {
-  padding: 150px;
+  padding: 10%;
+}
+
+#hobbies-bottom ul {
+  display: flex;
+}
+
+#hobbies-bottom ul li {
+  align-items: center !important;
+  height: auto !important;
 }
 
 #hobbies-bottom.fixed ul li {

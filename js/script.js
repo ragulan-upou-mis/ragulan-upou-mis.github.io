@@ -152,10 +152,11 @@ changeFontStyle.addEventListener('click', function (e) {
 
 let width = window.screen.width;
 let hobbies = document.getElementById('hobbies-bottom');
+let hobbiesClasses = document.getElementsByClassName('hobbies');
 hobbies.style.transform = 'translateY(100%)';
 hobbies.style.bottom = '0';
 
-if (width < 425) {
+if (width <= 768) {
   document.getElementById('hobbies-container').style.marginTop = '0';
   document.getElementById('hobbies').innerHTML = hobbies.innerHTML;
 }
@@ -185,7 +186,7 @@ window.addEventListener('scroll', function(ev) {
 
   
 
-  if (width > 425) {
+  if (width > 768) {
     if (scrollTop <= 100) {
         main.classList.remove('sticky');
         hobbies.style.transform = 'none';
@@ -201,17 +202,19 @@ window.addEventListener('scroll', function(ev) {
 
     if (footerDistance < 600) {
       hobbies.style.transform = 'translateY(-100%)';
+      hobbies.style.opacity = '0'; 
     }
 
     if (footerDistance > 600) {
       hobbies.style.transform = 'translateY(0)';
+      hobbies.style.opacity = '1';
     }
   }
 
 
 
   if (distanceToTop < distance) {
-      if (width > 425) {
+      if (width > 768) {
         main.style.transition = '1s';
         main.style.transform = 'translateY(-100%)';
 
