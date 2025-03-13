@@ -1,3 +1,12 @@
+
+
+body {
+  background: url('../images/grey.jpg') center no-repeat fixed;
+  background-size: cover;
+  background-blend-mode: color-burn;
+  background-color: #aaa;
+}
+
 .main {
   padding: 50px 100px;
 }
@@ -12,13 +21,12 @@ header {
   overflow: hidden;
   height: 100vh;
   max-width: 100%;
-  background: url('../images/vector2.png') center no-repeat;
+  /* background: url('../images/vector2.png') center no-repeat;
   background-size: cover;
   background-blend-mode: inherit;
-  box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
-  backdrop-filter: blur( 10px );
-  -webkit-backdrop-filter: blur( 10px );
-  border: 1px solid rgba( 200, 200, 200, 0.5 );
+  box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 ); */
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
   border-radius: 20px;
   animation: fadeIn 1s 1s forwards;
   opacity: 0;
@@ -43,6 +51,25 @@ header {
 .inner-container section:first-child {
   float: left;
   width: 50%;
+}
+
+
+.inner-container section:first-child ul li:first-child {
+  padding-left: 10px;
+  font-size: 25px;
+}
+
+.inner-container section:first-child ul li:nth-child(2) {
+  padding-left: 20px;
+  font-size: 35px;
+}
+
+.inner-container section:first-child ul li:nth-child(3) {
+  font-size: 30px;
+}
+
+.inner-container section:first-child ul li:nth-child(2) {
+  font-size: 30px;
 }
 
 .inner-container section:nth-child(3) {
@@ -73,7 +100,7 @@ header {
 
 .inner-container section:nth-child(3) ul li img {
   width: 20%;
-  mix-blend-mode: difference;
+  mix-blend-mode: color-burn !important;
 }
 
 .inner-container section:nth-child(3) ul li.hobbies a {
@@ -167,7 +194,7 @@ header {
 }
 
 .shadow-effect.top {
-  font-size: 3rem;
+  font-size: 2rem;
   text-shadow: 1px 1px #aaa;
   top:0;
   transform: translateY(-200%);
@@ -186,7 +213,7 @@ header {
 }
 
 .editMode div {
-  width:25%;
+  width:33%;
   float: left;
   text-align: center;
   padding:5px 0;
@@ -541,10 +568,15 @@ footer div ul li a:hover {
 
   .inner-container section:first-child p:first-child {
     text-align: center;
-    font-size: 1rem !important;
+    font-size: 20px !important;
     padding:10px 0 !important;
     margin-top:300px;
     width: auto;
+  }
+
+  .inner-container section:first-child ul li {
+    padding: 0 !important;
+    font-size: 18px !important;
   }
 
   .inner-container section:first-child ul {

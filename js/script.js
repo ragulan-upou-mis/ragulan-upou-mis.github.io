@@ -15,9 +15,6 @@ const changeBodyBackground = document.querySelector('.changeBodyBackground');
 const targetBodyBackground = document.getElementsByClassName('target-body-background');
 const selectedBodyBackground = localStorage.getItem('target-body-background');
 
-const changeBackground = document.querySelector('.changeBackground');
-const targetBackground = document.getElementsByClassName('target-background');
-const selectedBackground = localStorage.getItem('target-background');
 
 const changeFontColor = document.querySelector('.changeFontColor');
 const targetFontColor = document.getElementsByClassName('target-font-color');
@@ -31,7 +28,6 @@ const backgroundClasses = ['bg-dark', 'bg-basic', 'bg-primary', 'bg-secondary', 
 const fontClasses = ['text-basic', 'text-primary', 'text-secondary', 'text-tertiary', 'text-quaternary', 'text-dark'];
 const fontStyles = ['poppins', 'rubik', 'nunito', 'calistoga', 'autowide'];
 
-addClass(targetBackground, selectedBackground);
 addClass(targetBodyBackground, selectedBodyBackground);
 addClass(targetFontColor, selectedFontColor);
 addClass(targetFontStyle, selectedFontStyle);
@@ -108,18 +104,6 @@ document.querySelector('.reset').addEventListener('click', function (e) {
   window.location.reload();
 });
 
-changeBackground.addEventListener('click', function (e) {
-  let value = e.target.classList.value;
-  let key = 'target-background';
-  
-  if (value != '') {
-    backgroundClasses.forEach(function (i){
-      removeClass(targetBackground, i);
-    });
-    localStorage.setItem(key, value);
-    addClass(targetBackground, value);
-  }
-});
 
 changeBodyBackground.addEventListener('click', function (e) {
   let value = e.target.classList.value;
@@ -226,9 +210,3 @@ function toggleModal(target) {
 span.onclick = function() {
   modal.style.display = "none";
 }
-
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
