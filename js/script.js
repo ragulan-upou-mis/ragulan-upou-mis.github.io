@@ -5,6 +5,7 @@ const hamburger = navbar.querySelector('.navbar__hamburger');
 const menu = document.querySelector('.mobile__menu');
 const body = document.querySelector('body');
 const toggleCheckbox = document.querySelector('.toggleCheckbox');
+const closeModal = document.querySelector('.close');
 
 const localStorage = window.localStorage;
 
@@ -75,6 +76,18 @@ function removeClass(elements, className) {
 		}
 	}
 }
+
+const hideInfo = localStorage.getItem('hide-info');
+
+if (hideInfo === null) {
+  setTimeout (function (){
+    document.getElementById('info').click();
+  }, 3000)
+}
+
+closeModal.addEventListener('click', function (e) {
+  localStorage.setItem('hide-info', true);
+});
 
 menu.addEventListener('click', function (e) {
   if (e.target.matches('.mobile__links a')) {
@@ -251,6 +264,19 @@ const modal = document.getElementById("modal");
 const span = document.getElementsByClassName("close")[0];
 
 function toggleModal(target) {
+
+  if (target === 'info-value') {
+    var editBtn = document.getElementById('edit-button');
+    var resetBtn = document.getElementById('reset-button');
+    let resetBtnContainers = document.querySelectorAll('.reset-button-container');
+    
+    resetBtnContainers.forEach((i) => {
+      i.innerHTML = resetBtn.innerHTML;
+    });
+
+    document.getElementById('edit-button-container').innerHTML = editBtn.innerHTML;
+  }
+
   modal.style.display = "block";
   let modalContent = document.getElementById('modal-content');
   let targetContent = document.getElementById(target);
