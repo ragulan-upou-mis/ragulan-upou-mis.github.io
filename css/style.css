@@ -640,8 +640,9 @@ footer div ul li a:hover {
   }
   
   .editMode div {
-    width: 50% !important;
+    width: 100% !important;
     float: left;
+    margin-bottom: 20px;
   }
 
   footer {
